@@ -30,9 +30,9 @@
       <?php endif; ?>
 
       <header>
-        <h1><?php the_title(); ?></h1>
+        <h1><?php /*the_title();*/ ?></h1>
       </header>
-
+     <!--  <img id="logo-hero" src="./wp-content/resources/images/logo-large-white.png" /> -->
       <section class="post-entry">
         <?php the_content(); ?>
         <?php custom_link_pages(array(

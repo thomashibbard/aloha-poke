@@ -19,7 +19,9 @@
     , shell = require('gulp-shell')
     , postcss      = require('gulp-postcss')
     , sourcemaps   = require('gulp-sourcemaps')
-    , autoprefixer = require('autoprefixer')    
+    , autoprefixer = require('autoprefixer')
+    , mqpacker = require('css-mqpacker')
+    , csswring = require('csswring')
     , plugins = require('gulp-load-plugins')();
 const PORT = '8888';
 
@@ -27,6 +29,19 @@ const PORT = '8888';
     './app/**/*.js', 
     './app/**/*.css'
   ];
+
+  var rootDir = './themes/stanleywp';
+  var customDeps = {
+    css: [
+      rootDir + '/css/aloha-poke-custom-scss/*.scss',
+      rootDir + '/css/aloha-poke-custom-css'
+    ],
+    js: [
+      rootDir + '/js/aloha-poke-custom-scripts/*.js',
+      rootDir + '/js/aloha-poke-custom-scrips/*.js'
+    ]
+  };
+  console.log(customDeps)
 
   gulp.task('default', function(){
     console.log(chalk.magenta(gulpSplashStr));
@@ -62,13 +77,18 @@ const PORT = '8888';
   });
 
 
-  gulp.task('sass', function() {
-    return sass('./themes/stanleywp/css/aloha-poke-custom-scss/*.scss', { style: 'expanded' })
-      .pipe(postcss([ autoprefixer({ browsers: ['last 3 versions'] }) ]))
-      .pipe(gulp.dest('./themes/stanleywp/css/aloha-poke-custom-css'));
+  gulp.task('sass', function(){
+    var processors = [
+        autoprefixer({browsers: ['last 10 version']}),
+        mqpacker,
+        //csswring
+    ];
+    return sass(customDeps.css[0], { style: 'expanded' /*'compact'*/ })
+      .pipe(postcss(processors))
+      .pipe(gulp.dest(customDeps.css[1]));
   });
 
-  gulp.task('watch-sass', function () {
+  gulp.task('watch-sass', function (){
       gulp.watch('./themes/stanleywp/css/aloha-poke-custom-scss/*.scss', ['sass'])
   });
 
@@ -80,11 +100,7 @@ const PORT = '8888';
       .pipe(jshint.reporter(stylish));
   });
 
-
-
   /* launch app in browser */
-
-
   //open browser
   gulp.task('browser-open', false, function () {
       var options = {
@@ -101,10 +117,8 @@ const PORT = '8888';
   });
 
 
-var gulpSplashStr =          chalk.blue('┌────────────────────────────────────────────────┐\n')
-+ chalk.blue('│') + chalk.magenta(' Aloha Pokê (v 0.0.1)                            ') + chalk.blue('│\n')
-//+ chalk.blue('│') + chalk.magenta(' Run npm install && bower install to get deps   ') + chalk.blue('│\n')
-//+ chalk.blue('│') + chalk.magenta(' Run npm launch to run in browser               ') + chalk.blue('│\n')
+var gulpSplashStr = chalk.blue('┌────────────────────────────────────────────────┐\n')
++ chalk.blue('│') + chalk.magenta(' Aloha Pokê (v 0.0.1)      ' + chalk.red('≥') + chalk.yellow('<(') + chalk.red('(') + chalk.yellow('(°') + chalk.red('>') + '              ') + chalk.blue('│\n')
 + chalk.blue('└────────────────────────────────────────────────┘');
 
 

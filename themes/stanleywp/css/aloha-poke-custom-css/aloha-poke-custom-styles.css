@@ -1,6 +1,130 @@
-header .navbar-inverse {
+/*import fonts*/
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+/*declare variables*/
+/*aloha poke wordpress overwrites*/
+html, body {
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../../resources/images/poke1.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: rgba(233, 242, 249, 0.39);
+}
+
+header nav .navbar-inverse {
   background-color: transparent;
   border-bottom: 0;
-  border-radius: 4px;
-  box-shadow: 0px 0px 18px -2px rgba(0, 0, 0, 0.14);
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 18px -2px rgba(0, 0, 0, 0.14);
+          box-shadow: 0px 0px 18px -2px rgba(0, 0, 0, 0.14);
+}
+header nav .navbar-inverse .navbar-nav > .active > a {
+  border-top: 2apx solid cornflowerblue;
+  opacity: 0.6;
+}
+header nav .navbar-inverse .navbar-nav > .active > a,
+header nav .navbar-inverse .navbar-nav > .active > a:hover {
+  color: #333333;
+  background-color: #efefef;
+}
+header nav .navbar-inverse .navbar-nav > .active > a:focus,
+header nav .navbar-inverse .navbar-nav > .active > a:hover:focus {
+  background-color: unset;
+  color: #333333;
+}
+header nav .navbar-inverse .navbar-nav > .active > a:active,
+header nav .navbar-inverse .navbar-nav > .active > a:hover:active {
+  background-color: initial;
+  color: #333333;
+}
+header nav .navbar-inverse .navbar-nav li > a:hover {
+  color: #333333;
+  outline: none;
+}
+header nav .navbar-inverse .navbar-nav li > a:focus {
+  background-color: unset;
+  color: #333333;
+}
+header nav .navbar-inverse .navbar-nav li > a:active {
+  background-color: initial;
+  color: #333333;
+}
+header nav .navbar-inverse .navbar-toggle {
+  border-color: #999999;
+  outline: none;
+}
+header nav .navbar-inverse .navbar-toggle:hover {
+  background-color: #efefef;
+  outline: none;
+}
+header nav .navbar-inverse .navbar-toggle:focus {
+  background-color: unset;
+  color: #999999;
+}
+header nav .navbar-inverse .navbar-toggle:active {
+  background-color: initial;
+  color: #999999;
+}
+header nav .navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #999999;
+}
+
+/*aloha poke custom element styles*/
+#footer {
+  width: 100%;
+  margin: 0;
+  font-family: 'Droid Sans Mono', menlo, monospace;
+  color: #efefef;
+  background: url("../../../../resources/images/transparent-pix-080.png");
+}
+#footer .col-lg-4 {
+  border-top: 1px solid white;
+}
+#footer .col-lg-4:nth-of-type(1), #footer .col-lg-4:nth-of-type(3) {
+  width: 33%;
+  padding-right: 30px;
+}
+#footer .col-lg-4:nth-of-type(2) {
+  min-width: 31.2%;
+}
+#footer .vr {
+  border-right: 1px solid white;
+}
+#footer .vr.vr-small {
+  height: 50px;
+}
+#footer .vr.vr-big {
+  height: 100px;
+}
+#footer .fa {
+  font-size: 15px;
+}
+#footer .fa
+h4 {
+  color: #d5d5d5;
+  font-size: 23px;
+  font-family: 'Droid Sans Mono';
+  text-align: center;
+}
+#footer p {
+  font-size: 12px;
+}
+#footer .container {
+  width: 100%;
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  height: 125px;
+  margin: 0 auto;
+  background-color: black;
+}
+#footer::before {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4em;
+  pointer-events: none;
 }

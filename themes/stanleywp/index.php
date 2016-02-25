@@ -71,7 +71,6 @@
                     <h4 class="post-title"><?php the_title(); ?></h4>
                   </header>
 
-
                   <?php the_content(); ?>
 
                   <?php custom_link_pages(array(

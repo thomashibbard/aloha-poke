@@ -47,13 +47,12 @@ define( 'WP_DEBUG', true );
 //custom css
 function addAlohaPokeCustomStyles(){
   wp_register_style('alhoa_poke_custom_styles', get_template_directory_uri() . '/css/aloha-poke-custom-css/aloha-poke-custom-styles.css', array(), '0.0.1', 'all');
-  wp_enqueue_style('alhoa_poke_custom_styles' );  
+  wp_enqueue_style('alhoa_poke_custom_styles' );
 }
 
 //custom js
 wp_register_script('aloha_poke_custom_scripts', get_template_directory_uri() . '/js/aloha-poke-custom-scripts/aloha-poke-custom-scripts.js');
 wp_enqueue_script('aloha_poke_custom_scripts');
 
+add_action( 'wp_enqueue_scripts', 'addAlohaPokeCustomStyles', 15 );
 ?>
-<script>//console.log('<?=get_template_directory_uri() . "/aloha-poke-custom-css/aloha-custom-styles.css"?>');</script>
-

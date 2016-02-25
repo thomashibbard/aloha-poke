@@ -17,6 +17,7 @@
               <?php the_post_thumbnail(); ?>
           <?php endif; ?>
           <h1> <?php the_title(); ?></h1>
+          <img id="logo-hero" src="../../../../resources/images/logo-large.png" />>
            <?php the_content(); ?>
 
             <?php endwhile; ?>
